@@ -1,0 +1,35 @@
+* {
+  /* border: 1px solid; */
+  font-family: 'Inter', sans-serif;
+}
+
+footer {
+  background-color: #2C2C2C;
+  color: 	#E0E0E0;
+  padding: 0 20px 10px 20px;
+}
+
+#lists {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+a {
+  color: #6C63FF;
+}
+
+p {
+  text-align: center;
+}
+
+#icons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}

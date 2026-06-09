@@ -1,0 +1,66 @@
+<script>
+  const questions = [
+    {
+      category: "JavaScript Basics",
+      question: "What is the output of typeof null in JavaScript?",
+      choices: ["null", "object", "undefined"],
+      answer: "object",
+    },
+    {
+      category: "Arrays",
+      question:
+        " Which method adds one or more elements to the end of an array?",
+      choices: ["push", "unshift", "concat"],
+      answer: "push",
+    },
+    {
+      category: "Strings",
+      question: " What does the .split() method return when used on a string?",
+      choices: ["string", "number", "array"],
+      answer: "array",
+    },
+    {
+      category: "HTML",
+      question: "Which tag is used to define a hyperlink?",
+      choices: ["link", "a", "href"],
+      answer: "a",
+    },
+    {
+      category: "DOM Manipulation",
+      question: 'What does document.querySelector(".my-class") return?',
+      choices: [
+        'all elements with the class "my-class"',
+        'the first element with the class "my-class"',
+        "an array of all matching elements",
+      ],
+      answer: 'the first element with the class "my-class"',
+    },
+  ];
+
+  const getRandomQuestion = array => {
+    const randomNumber = Math.floor(Math.random() * array.length);
+    const randomQuestion = array[randomNumber];
+    return randomQuestion;
+  };
+
+  const getRandomComputerChoice = array => {
+    const randomNumber = Math.floor(Math.random() * array.length);
+    const randomChoice = array[randomNumber];
+    return randomChoice;
+  };
+
+  const getResult = (obj, choice) => {
+    const answer = obj.answer;
+    if (answer === choice) {
+      return `${obj.question}\n\nThe computer's choice "${choice}" is correct!`;
+    }
+    return `${obj.question}\n\nThe computer's choice "${choice}" is wrong. The correct answer is:\n "${answer}"`;
+  };
+
+  const questionObj = getRandomQuestion(questions);
+  const randomAnswer = getRandomComputerChoice(questionObj.choices);
+
+  const result = getResult(questionObj, randomAnswer);
+
+  console.log(result);
+</script>

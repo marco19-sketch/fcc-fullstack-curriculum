@@ -1,0 +1,49 @@
+<script>
+  const projectStatus = {
+    PENDING: {
+      description: "Pending Execution",
+    },
+    SUCCESS: {
+      description: "Executed Successfully",
+    },
+    FAILURE: {
+      description: "Execution Failed",
+    },
+  };
+
+  class ProjectIdea {
+    constructor(title, description) {
+      this.title = title;
+      this.description = description;
+      this.status = projectStatus.PENDING;
+    }
+    updateProjectStatus(newStatus) {
+      this.status = newStatus;
+    }
+  }
+
+  class ProjectIdeaBoard {
+    constructor(title) {
+      this.title = title;
+      this.ideas = [];
+    }
+    pin(idea) {
+      this.ideas.push(idea);
+    }
+    unpin(idea) {
+      const index = this.ideas.findIndex(project => project === idea);
+      this.ideas.splice(index, 1);
+    }
+    count() {
+      return this.ideas.length;
+    }
+    formatToString() {
+      let string = `${this.title} has ${this.count()} idea(s)\n`;
+      this.ideas.forEach(
+        ({ title, status, description }) =>
+          (string += `${title} (${status.description}) - ${description}\n`)
+      );
+      return string;
+    }
+  }
+</script>

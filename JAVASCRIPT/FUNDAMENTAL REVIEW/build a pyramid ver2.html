@@ -1,0 +1,19 @@
+<script>
+const pyramid = (char, rows, isTrue) => {
+    let lines = "";
+  
+    if (!isTrue) {
+      for (let i = 1; i <= rows; i++) {
+        lines += `${" ".repeat(rows - i)}${char.repeat(2 * i - 1)}\n`;
+      }
+    } else {
+      for (let i = rows; i > 0; i--) {
+        lines += `${" ".repeat(rows - i)}${char.repeat(2 * i - 1)}\n`;
+      }
+    }
+    return '\n' + lines;
+  };
+  
+  console.log(pyramid("#", 5, true));
+  console.log(JSON.stringify(pyramid('o', 5, true)))
+  </script>

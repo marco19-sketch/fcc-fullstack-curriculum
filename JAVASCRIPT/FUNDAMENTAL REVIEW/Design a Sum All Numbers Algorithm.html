@@ -1,0 +1,14 @@
+<script>
+const sumAll = ([n, m]) => {
+  const sorted = [n, m].sort((a, b) => a - b);
+  let sum = 0;
+  for (let i = sorted[0]; i <= sorted[1]; i++) {
+    sum += i;
+    console.log(i, sum);
+  }
+  return sum;
+};
+
+const final = sumAll([10, 3]);
+console.log(final);
+</script>

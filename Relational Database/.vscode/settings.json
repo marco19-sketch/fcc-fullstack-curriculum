@@ -1,0 +1,9 @@
+{
+  "rainbowString": {
+    "extensions": [
+        ".sh",
+        ".cs",
+        ".js"
+    ]
+  }
+}

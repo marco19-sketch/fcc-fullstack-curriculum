@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome and Debug",
+      "url": "http://localhost:5500/index.html", // Replace with your server URL
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

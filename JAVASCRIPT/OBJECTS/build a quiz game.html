@@ -1,0 +1,75 @@
+<script>
+const questions = [
+  {
+    category: 'Music',
+    question: 'The first item we removed from the time capsule was a very influential album picturing the artist reclined in a white suit and featuring the songs "P.Y.T." and "Billie Jean?',
+    choices: ["Thriller",
+ "Beat It",
+ "Abbey Road"],
+    answer: "Thriller"
+  },
+  {
+    category: 'Games',
+    question: 'The bane of many peoples existence during the 1980s. It was a puzzle requiring the user to match the colors of 54 separate pieces into all six sides of a cube?',
+    choices: ['Simon',
+ 'Rubik\'s Cube',
+ 'Cubic Frustration'],
+    answer: 'Rubik\'s Cube'
+  },
+  {
+    category: 'jewelry',
+    question: 'This late 1980s and early 1990s fad item from the time capsule was eventually taken off the market because the metal edges of this colorful, yet violent jewelry, proved to be sharp enough to draw blood?',
+    choices: ['choker necklaces',
+ 'slap bracelets',
+ 'mood rings'],
+    answer: 'slap bracelets'
+  },
+  {
+    category: 'video',
+    question: 'The 1980s saw the birth of the music video. To represent that, I placed a cassette tape of the song first played on MTV in 1981?',
+    choices: ['"Video Killed the Radio Star" - The Buggles',
+ '"Don\'t Stop \'til You Get Enough" - Michael Jackson',
+ '"Physical" - Olivia Newton-John'],
+    answer: '"Video Killed the Radio Star" - The Buggles'
+  },
+  {
+    category: 'shows',
+    question: 'This fad we pulled out of the time capsule features stuffed animals, a TV series, and three movies originally based on greeting card characters. Some of the heroes of the series had names like Tenderheart, Grumpy, Cheer, Birthday, and Bedtime?',
+    choices: ['Cabbage Patch Kids',
+ 'Care Bears',
+ 'The Seven Dwarfs'],
+    answer: 'Care Bears'
+  },
+];
+
+function getRandomQuestion(array) {
+  return  array[Math.floor(Math.random() * array.length)];
+}
+
+let randomQuestion = getRandomQuestion(questions);
+
+function getRandomComputerChoice(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+let computerChoice = getRandomComputerChoice(randomQuestion.choices);
+
+
+
+
+function getResults(randomQuestion, computerChoice) {
+  if (computerChoice === randomQuestion.answer) {
+    return 'The computer\'s choice is correct!';
+  }
+    return `The computer's choice is wrong. The correct answer is: ${randomQuestion.answer}`;
+}
+
+console.log(getRandomQuestion(questions).question);
+console.log(computerChoice);
+console.log(randomQuestion.answer);
+console.log(getResults(randomQuestion, computerChoice));
+
+</script>
+
+
+

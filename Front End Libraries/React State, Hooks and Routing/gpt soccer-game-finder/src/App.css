@@ -1,0 +1,121 @@
+/* === Modern CSS Reset === */
+*,
+ *::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* html, body {
+  height: 100%;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+body {
+  line-height: 1.5;
+  background-color: #fff;
+  color: #000;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+/*=== css reset end ===*/
+
+* {
+  border: 1px solid ;
+}
+
+.competition {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  text-align: center;
+}
+
+button {
+  background-color: blue;
+  color: white;
+}
+
+button.search:disabled {
+  cursor: not-allowed;
+  
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #0077cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+}
+
+th {
+  width: 200px;
+}
+
+tr {
+  height: 35px;
+  text-align: center;
+}
+
+td > .crest {
+  margin: 5px auto;
+  height: 25px;
+}
+

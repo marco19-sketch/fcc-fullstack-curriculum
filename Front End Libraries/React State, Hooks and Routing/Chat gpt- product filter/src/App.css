@@ -1,0 +1,56 @@
+body {
+    background-color: #4B4E62
+  }
+  
+  div {
+    min-width: 300px;
+    max-width: 500px;
+    height: fit-content; 
+    background-color: #121212;
+    margin: auto;
+    color: #AAAAAA;
+    padding: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h3 {
+    text-align: center;
+  }
+  
+  legend {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  input {
+    display: block;
+    width: 60%;
+    font-size: 1.5em;
+    margin: 5px auto 15px;
+    text-align: right;
+    background-color: #1E1E1E;
+    color: #8C8C8C;
+  }
+  
+  select {
+    display: block;
+    background-color: #00C896;
+    font-size: 1.5em;
+    margin: 10px auto;
+    padding: 10px 20px;
+  }
+  
+  select:hover {
+    background-color: #3682FF;
+    color: white;
+  }
+  
+  p {
+    font-size: 2.5em;
+    text-align: center;
+    color: #00C896;
+  }

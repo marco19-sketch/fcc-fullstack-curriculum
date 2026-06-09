@@ -1,0 +1,26 @@
+<script>
+  const getAverage = array => {
+    return array.reduce((acc, total) => acc + total, 0) / array.length;
+  };
+
+  const getGrade = score => {
+    if (score < 60) return "F";
+    if (score < 70) return "D";
+    if (score < 80) return "C";
+    if (score < 90) return "B";
+    if (score < 100) return "A";
+    if (score === 100) return "A+";
+  };
+
+  const hasPassingGrade = score => (getGrade(score) === "F" ? false : true);
+
+  const studentMsg = (scoreArray, score) => {
+    const average = getAverage(scoreArray);
+    const grade = getGrade(score);
+    return hasPassingGrade(score)
+      ? `Class average: ${average}. Your grade: ${grade}. You passed the course.`
+      : `Class average: ${average}. Your grade: ${grade}. You failed the course.`;
+  };
+
+  console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 37));
+</script>

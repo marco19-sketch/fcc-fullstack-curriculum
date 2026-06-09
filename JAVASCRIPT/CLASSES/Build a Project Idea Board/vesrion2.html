@@ -1,0 +1,94 @@
+<script>
+  const projectStatus = {
+    PENDING: { description: "Pending Execution" },
+    SUCCESS: { description: "Executed Successfully" },
+    FAILURE: { description: "Execution Failed" },
+  };
+
+  class ProjectIdea {
+    constructor(title, description) {
+      this.title = title;
+      this.description = description;
+      this.status = projectStatus.PENDING;
+    }
+    updateProjectStatus(newStatus) {
+      this.status = newStatus;
+    }
+  }
+
+  class ProjectIdeaBoard {
+    constructor(title) {
+      this.ideas = [];
+      this.title = title;
+    }
+    pin(ProjectIdea) {
+      this.ideas.push(ProjectIdea);
+    }
+    unpin(ProjectIdea) {
+      const ideaIndex = this.ideas.findIndex(idea => idea === ProjectIdea);
+      this.ideas.splice(ideaIndex, 1);
+    }
+    count() {
+      return this.ideas.length;
+    }
+    formatToString() {
+      let string = `${this.title} has ${this.count()} idea(s)\n`;
+      this.ideas.forEach(idea => {
+        string += `${idea.title} (${idea.status.description}) - ${idea.description}\n`;
+      });
+      return string;
+    }
+  }
+
+  const smartWindows = new ProjectIdea(
+    "Smart Window Locks",
+    "An automation project allowing users to lock, unlock windows automatically based on weather conditions."
+  );
+
+  // 1. Web Development Project
+  const portfolioWebsite = new ProjectIdea(
+    "Interactive Portfolio Website",
+    "A responsive portfolio with animations, project showcase, and contact form using React.js"
+  );
+
+  // 2. Mobile App Project
+  const fitnessTracker = new ProjectIdea(
+    "AI-Powered Fitness App",
+    "Mobile application that suggests workouts and tracks progress using machine learning"
+  );
+
+  // 3. Game Development Project
+  const spaceAdventure = new ProjectIdea(
+    "2D Space Explorer Game",
+    "Retro-style game with procedurally generated planets and alien encounters"
+  );
+
+  // 4. Data Science Project
+  const sentimentAnalyzer = new ProjectIdea(
+    "Real-time Tweet Sentiment Analysis",
+    "Tool that analyzes Twitter trends and classifies tweets by emotional tone"
+  );
+
+  // 5. IoT Project
+  const smartGarden = new ProjectIdea(
+    "Automated Plant Care System",
+    "IoT device that monitors soil moisture and controls watering via smartphone app"
+  );
+
+  const newBoard = new ProjectIdeaBoard("Ideas for new projects");
+  newBoard.pin(smartWindows);
+  newBoard.pin(portfolioWebsite);
+  newBoard.pin(fitnessTracker);
+  newBoard.pin(spaceAdventure);
+  newBoard.pin(sentimentAnalyzer);
+  newBoard.pin(smartGarden);
+
+  newBoard.unpin(smartWindows);
+  // console.log(newBoard.ideas)
+
+  portfolioWebsite.updateProjectStatus(projectStatus["SUCCESS"]);
+  console.log(newBoard.formatToString());
+
+  const emptyBoard = new ProjectIdeaBoard("Empty Board");
+  // console.log(emptyBoard.formatToString())
+</script>

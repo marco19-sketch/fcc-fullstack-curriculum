@@ -1,0 +1,79 @@
+<script>
+  const inventory = [
+  {
+      name: "apples",
+      quantity: 100,
+    },
+    {
+      name: "oranges",
+      quantity: 50,
+    },
+    {
+      name: "bananas",
+      quantity: 75,
+    },
+    {
+      name: "flour",
+      quantity: 10,
+    },
+  ];
+
+  const findProductIndex = name =>
+    inventory.findIndex(object => object.name === name.toLowerCase());
+
+
+  const addProduct = productObj => {
+    const productIndex = findProductIndex(productObj.name);
+    productObj.name = productObj.name.toLowerCase();
+
+    if (productIndex === -1) {
+      inventory.push(productObj);
+      console.log(`${productObj.name} added to inventory`);
+      return inventory;
+    } else {
+      inventory[productIndex].quantity += productObj.quantity;
+      console.log(`${productObj.name} quantity updated`);
+      return inventory;
+    }
+  };
+
+  addProduct({ name: "Bananas", quantity: 32 });
+  addProduct({ name: "mangos", quantity: 8 });
+  addProduct({ name: "ananas", quantity: 10 });
+  addProduct({ name: "Bananas", quantity: 4 });
+  addProduct({ name: "ananas", quantity: 6 });
+
+  const removeProduct = (name, quantity) => {
+    const productIndex = findProductIndex(name);
+    const lowercaseName = name.toLowerCase();
+
+    if (productIndex === -1) {
+      console.log(`${lowercaseName} not found`);
+      return;
+    }
+
+    const currentQuantity = inventory[productIndex].quantity;
+    if (currentQuantity < quantity) {
+      console.log(
+        `Not enough ${lowercaseName} available, remaining pieces: ${currentQuantity}`
+      );
+    } else if (currentQuantity === quantity) {
+      inventory.splice(productIndex, 1);
+    } else {
+      const updatedQuantity = (inventory[productIndex].quantity -= quantity);
+      console.log(`Remaining ${lowercaseName} pieces: ${updatedQuantity}`);
+    }
+  };
+
+  removeProduct("bananas", 6);
+  addProduct({ name: "Broccoli", quantity: 45 });
+  removeProduct("BROCCOLI", 5);
+  removeProduct("pears", 5);
+  removeProduct("FLOUR", 5);
+
+  let list = "\n Inventory: \n";
+  for (let item of inventory) {
+    list += `${item.name}: ${item.quantity}\n`;
+  }
+  console.log(list);
+</script>

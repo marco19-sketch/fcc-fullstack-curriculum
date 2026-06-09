@@ -1,0 +1,109 @@
+* {
+    border-radius: 0;
+  }
+  
+  @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+  
+  body {
+    background-color: white; 
+  }
+  
+  
+  h1 {
+    text-align: center;
+    font-family: "Press Start 2P", cursive;
+    font-size: 3rem;
+    text-shadow: 3px 3px 8px;
+    margin-bottom: 0;
+  }
+  
+  p {
+    margin: 0;
+    font-family: "Press Start 2P", cursive;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 3px 3px 6px black;
+    transform: scale(0.1);
+    transition: transform 0.5s ease;
+  }
+  
+  p.visible {
+    transform: scale(1);
+  }
+  
+  #border {
+    width: 300px;
+    height: 300px;
+    padding: 0;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .square {
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    font-family: "Press Start 2P", cursive;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px;
+  }
+  
+  .square.preview::before {
+    content: attr(data-preview);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    font-size: 3rem;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s;
+  }
+  
+  .square.preview:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  
+  .square.preview-X:hover::before {
+    color: red;
+  }
+  
+  .square.preview-O:hover::before {
+    color: blue;
+  }
+  
+  #reset {
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    padding: 20px 40px;
+    margin: auto;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    box-shadow: 3px 3px 8px black;
+    background-color: blue;
+    color: red;
+    text-shadow: 2px 2px 4px black;
+  }
+  
+  #reset:hover {
+    transform: scale(1.1);
+    transition: transform .3s;
+    background-color: red;
+    color: blue;
+  }
+  
+  #reset:active {
+    background-color: green;
+    transform: scale(0.95);
+    transition: transform .3s;
+  }
+  

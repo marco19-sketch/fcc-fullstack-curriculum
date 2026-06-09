@@ -1,0 +1,66 @@
+<script>
+  const inventory = [
+    {
+      name: "apples",
+      quantity: 100,
+    },
+    {
+      name: "oranges",
+      quantity: 50,
+    },
+    {
+      name: "bananas",
+      quantity: 75,
+    },
+    {
+      name: "flour",
+      quantity: 10,
+    },
+  ];
+
+  function findProductIndex(productName) {
+    return inventory.findIndex(item => item.name === productName.toLowerCase());
+  }
+
+  function addProduct(objProduct) {
+    const index = findProductIndex(objProduct.name);
+    if (index !== -1) {
+      inventory[index].quantity += objProduct.quantity;
+      console.log(objProduct.name.toLowerCase() + " quantity updated");
+    } else {
+      inventory.push({
+        name: objProduct.name.toLowerCase(),
+        quantity: objProduct.quantity,
+      });
+      console.log(objProduct.name.toLowerCase() + " added to inventory");
+    }
+  }
+
+  function removeProduct(name, quantity) {
+    const index = findProductIndex(name);
+    if (index === -1) {
+      console.log(name.toLowerCase() + " not found");
+      return;
+    }
+    if (inventory[index].quantity < quantity) {
+      console.log(
+        "Not enough " +
+          inventory[index].name +
+          " available, remaining pieces: " +
+          inventory[index].quantity
+      );
+      return;
+    }
+    if (inventory[index].quantity === quantity) {
+      inventory.splice(index, 1);
+      return;
+    }
+    if (inventory[index].quantity > quantity) {
+      const remainingQuantity = (inventory[index].quantity -= quantity);
+      console.log(
+        "Remaining " + name.toLowerCase() + " pieces: " + remainingQuantity
+      );
+      return;
+    }
+  }
+</script>

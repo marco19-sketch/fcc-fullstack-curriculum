@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(66, 66, 94);
+  flex: 1;
+  min-height: 100vh;
+  color: rgb(116, 181, 142);
+  text-shadow: 3px 3px 6px black;
+  box-shadow: 3px 3px 6px black;
+}
+
+hr {
+  width: 80%;
+  max-width: 400px;
+}
+
+.otp {
+  color: white;
+  font-size: 2rem;
+  border: 3px double rgb(116, 181, 142);
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: inherit;
+}
+
+button {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(116, 181, 142);
+  cursor: pointer;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: rgb(28, 28, 121);
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:not([disabled]):hover {
+  background-color: rgb(205, 218, 210);
+  transform: scale(1.05);
+}
+
+button.not-allowed {
+  cursor: not-allowed;
+  box-shadow: none;
+  color: grey;
+  text-shadow: none;
+}
+
+@media screen and (max-width: 640) {
+    
+}

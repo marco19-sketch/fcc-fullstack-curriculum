@@ -1,0 +1,17 @@
+<script>
+  const num = 19;
+
+  function factorialCalculator(num) {
+    let result = 1;
+    let i = 1;
+    while (i <= num) {
+      result *= i;
+      i++;
+    }
+    return result;
+  }
+
+  const factorial = factorialCalculator(num);
+  const resultMsg = "Factorial of " + num + " is " + factorial;
+  console.log(resultMsg);
+</script>

@@ -1,0 +1,15 @@
+<script>
+  const maskEmail = email => {
+    const toReplace = email.slice(1, email.indexOf("@") - 1);
+    if (toReplace.length === 0) {
+      return "Email too short to masked!";
+    }
+    const asteriscs = "*".repeat(toReplace.length);
+    const masked = email.replace(toReplace, asteriscs);
+    return masked;
+  };
+
+  const email = "marco@gmail.com";
+
+  console.log(maskEmail(email));
+</script>

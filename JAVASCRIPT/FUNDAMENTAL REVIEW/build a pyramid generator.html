@@ -1,0 +1,23 @@
+<script>
+  function pyramid(str, num, isTrue) {
+    let rows = "";
+
+    if (!isTrue) {
+      for (let i = 1; i <= num; i++) {
+        let row = `${" ".repeat(num - i)}${str.repeat(2 * i - 1)}`;
+        rows += row + "\n";
+      }
+      return "\n" + rows;
+    } else {
+      for (let i = num; i > 0; i--) {
+        let row = `${" ".repeat(num - i)}${str.repeat(2 * i - 1)}`;
+        rows += row + "\n";
+      }
+      return "\n" + rows;
+    }
+  }
+
+  console.log(JSON.stringify(pyramid("o", 4, 1)));
+  console.log(pyramid("o", 10));
+  console.log(pyramid("o", 10, 1));
+</script>

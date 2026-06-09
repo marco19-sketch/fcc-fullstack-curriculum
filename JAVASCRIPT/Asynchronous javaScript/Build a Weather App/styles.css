@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-shadow: 3px 3px 8px;
+}
+
+body {
+  background: linear-gradient(lightblue, rgb(13, 184, 13));
+  height: 100vh;
+}
+
+#location {
+  text-align: center;
+  margin: 20px;
+}
+
+#main-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#weather-main {
+  font-size: 1.5em;
+}
+
+#temp-humidity {
+  height: 100px;
+}
+
+#temp-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#temp-humidity {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+#humidity {
+  display: flex;
+  align-items: center;
+}
+
+hr {
+  margin: 20px 120px;
+}
+
+#wind-container {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-left: -20px;
+}
+
+#wind {
+  margin-bottom: 20px;
+}
+
+#winds {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.cls-1 {
+  fill: none;
+  stroke: #000000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5px;
+}
+
+svg {
+  width: 100px;
+  height: 100px;
+  box-shadow: 3px 3px 10px;
+  border-radius: 6px;
+}
+
+#button-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+#get-forecast {
+  font-size: 1.5em;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px;
+}
+
+#get-forecast:hover {
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+
+select {
+  font-size: 1.5em;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px;
+}

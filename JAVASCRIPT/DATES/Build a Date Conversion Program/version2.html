@@ -1,0 +1,36 @@
+<script>
+  const currentDate = new Date();
+  const currentDateFormat = `Current Date and Time: ${currentDate}`;
+  console.log(currentDateFormat, "\n");
+
+  const pakistanDate = new Date(
+    "Fri Sep 27 2024 16:04:43 GMT+0500 (Pakistan Standard Time)"
+  );
+  const options = {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  };
+
+  const formatDateMMDDYYYY = thisDate => {
+    const month = thisDate.getMonth() + 1;
+    const day = thisDate.getDate();
+    const year = thisDate.getFullYear();
+    const today = `Formatted Date (MM/DD/YYYY): ${month}/${day}/${year}`;
+    return today;
+  };
+
+  const date = formatDateMMDDYYYY(pakistanDate);
+  console.log(date, "\n");
+
+  const formatDateLong = thisDate => {
+    const today = `Formatted Date (Month Day, Year): ${thisDate.toLocaleDateString(
+      "en-US",
+      options
+    )}`;
+    return today;
+  };
+
+  const dateLong = formatDateLong(pakistanDate);
+  console.log(dateLong);
+</script>

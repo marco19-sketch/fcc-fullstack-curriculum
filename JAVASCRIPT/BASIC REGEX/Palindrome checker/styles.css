@@ -1,0 +1,64 @@
+body {
+    background-color: #213116;
+  }
+  
+  main {
+    background-color: orange;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #95CA81;
+    display: grid;/*needed this to center #result*/
+  }
+  
+  h1 {
+    text-align: center;
+    text-shadow: 2px 2px 4px;
+    color: #95CA81;
+  }
+  
+  .container {
+    margin: auto;
+    display: block;
+  }
+  
+  #text-input {
+    margin: 0 auto 10px;
+    font-size: 1.2rem;
+    display: block;
+    width: 90%;
+    border-radius: 5px;
+  }
+  
+  #check-btn {
+    padding: 10px 10px;
+    margin: auto;
+    border-radius: 10px;
+    display: block;
+    background-color: #3C2A1A;
+    color: #95CA81;
+    text-shadow: 2px 1px 3px black;
+    box-shadow: 2px 2px 3px;
+  }
+  
+  #result {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 5px;
+    background-color: #3C2A1A;
+    color: #95CA81;
+    border-radius: 5px;
+    display: none;
+    width: fit-content;
+    justify-self: center;/* aligns the element horizontally , display grid on the parent*/
+  }
+  
+  @media screen and (min-width: 400px) {
+    .container {
+    display: flex;
+    justify-content: center;
+    }
+  
+    #text-input {
+     margin: auto;
+    }
+  }

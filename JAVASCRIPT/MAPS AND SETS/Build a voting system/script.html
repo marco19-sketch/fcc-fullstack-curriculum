@@ -1,0 +1,51 @@
+<script>
+  const poll = new Map();
+
+  function addOption(option) {
+    if (option === "") {
+      return "Option cannot be empty.";
+    } else if (!poll.has(option)) {
+      poll.set(option, new Set());
+      return `Option "${option}" added to the poll.`;
+    } else if (poll.has(option)) {
+      return `Option "${option}" already exists.`;
+    }
+  }
+
+  function vote(option, voterId) {
+    if (!poll.has(option)) {
+      return `Option "${option}" does not exist.`;
+    }
+    const voters = poll.get(option);
+    if (voters.has(voterId)) {
+      return `Voter ${voterId} has already voted for "${option}".`;
+    }
+    if (!voters.has(voterId)) {
+      voters.add(voterId);
+      return `Voter ${voterId} voted for "${option}".`;
+    }
+  }
+
+  function displayResults() {
+    let results = "Poll Results:\n";
+
+    const sortedEntries = [...poll.entries()].sort(
+      (a, b) => b[1].size - a[1].size
+    );
+
+    sortedEntries.forEach(([option, voters]) => {
+      results += `${option}: ${voters.size} votes\n`;
+    });
+    return results;
+  }
+
+  addOption("Mickey Mouse");
+  addOption("Minnie");
+  addOption("Goofy");
+
+  vote("Goofy", "Marco");
+  vote("Goofy", "Luigi");
+  vote("Minnie", "Luca");
+
+  console.log(displayResults());
+</script>

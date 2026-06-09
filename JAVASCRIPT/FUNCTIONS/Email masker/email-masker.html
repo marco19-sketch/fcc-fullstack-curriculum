@@ -1,0 +1,12 @@
+<script>
+  function maskEmail(email) {
+    let atIndex = email.indexOf("@"); // ritorna l'indice di @ che è un numero che posso utilizzare con repeat() e slice()
+    if (atIndex <= 1) {
+      return "Email is too short for masking";
+    }
+    return `${email[0]}${"*".repeat(atIndex - 2)}${email.slice(atIndex - 1)}`;
+  }
+
+  console.log(maskEmail("marco.brusca1970@gmail.com"));
+  console.log(maskEmail("a@gmail.com"));
+</script>

@@ -1,0 +1,31 @@
+<script>
+  const numbers = [3, 7, 1, 9, 4, 2, 8, 5, 6, 0];
+  const fruits = [
+    "apple",
+    "banana",
+    "cherry",
+    "grape",
+    "kiwi",
+    "lemon",
+    "mango",
+    "orange",
+    "peach",
+    "plum",
+  ];
+
+  const frankenSplice = (arr1, arr2, index) => {
+    arr1.reverse();
+    let sliced = arr2.slice(0);
+    for (const item of arr1) {
+      sliced.splice(index, 0, item);
+    }
+    arr1.reverse();
+    return sliced;
+  };
+
+  const mergedArrays = frankenSplice(numbers, fruits, 6);
+  console.log("merged arrays: ", mergedArrays, "\n");
+
+  console.log("numbers array: ", numbers, " \n");
+  console.log("fruits array: ", fruits, "\n");
+</script>

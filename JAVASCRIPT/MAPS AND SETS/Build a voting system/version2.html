@@ -1,0 +1,70 @@
+<script>
+  const poll = new Map();
+
+  const addOption = option => {
+    if (option === "") {
+      return `Option cannot be empty`;
+    }
+    if (!poll.has(option)) {
+      poll.set(option, new Set());
+      return `Option "${option}" added to the poll.`;
+    } else {
+      return `Option "${option}" already exists.`;
+    }
+  };
+
+  console.log(addOption("Obama"));
+  console.log(addOption("Obama"));
+  console.log(addOption("Clinton"));
+  console.log(addOption("Trump"));
+  console.log(addOption(""));
+
+  const vote = (option, voterId) => {
+    if (!poll.has(option)) {
+      return `Option "${option}" does not exist.`;
+    }
+    if (poll.get(option).has(voterId)) {
+      return `Voter ${voterId} has already voter for "${option}".`;
+    } else {
+      poll.get(option).add(voterId);
+      return `Voter ${voterId} voted for "${option}".`;
+    }
+  };
+
+  console.log(vote("Obama", "Lollo"));
+  console.log(vote("Obama", "Lollo"));
+  console.log(vote("Clinton", "Lollo"));
+  console.log(vote("Obama", "Totò"));
+  console.log(vote("Obama", "Gigi"));
+  console.log(vote("Bush", "Gigi"));
+  console.log("Obama Set(): ", poll.get("Obama"));
+
+  const displayResults = () => {
+    let results = "Poll Results:";
+
+    const sortedEntries = [...poll.entries()].sort(
+      (a, b) => b[1].size - a[1].size
+    );
+
+    for (const [option, votes] of sortedEntries) {
+      results += `\n${option}: ${votes.size} votes`;
+    }
+    return results;
+  };
+
+  const results = displayResults();
+  console.log(results);
+
+  const displayResults2 = () => {
+    let results2 = "Poll Results2:";
+
+    poll.entries().forEach(([option, votes]) => {
+      results2 += `\n${option}: ${[...votes].join(', ') || '0'} votes`;
+      // results2 += `\n${option}: ${votes.size} votes`;
+    });
+    return results2;
+  };
+
+  console.log(displayResults2());
+  console.log([...poll.values()])
+</script>

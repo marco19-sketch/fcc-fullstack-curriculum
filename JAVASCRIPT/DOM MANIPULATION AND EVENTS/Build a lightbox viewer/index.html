@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="widht=device-width, initial-scale=1.0" />
+    <title>Lightbox Viewer</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1>Art Gallery</h1>
+    <div class="gallery">
+      <div class="image-wrapper">
+        <img
+          alt="a painting depicting Stonehenge"
+          class="gallery-item"
+          src="https://cdn.freecodecamp.org/curriculum/labs/stonehenge-thumbnail.jpg" />
+      </div>
+      <div class="image-wrapper">
+        <img
+          alt="a painting depicting a storm"
+          class="gallery-item"
+          src="https://cdn.freecodecamp.org/curriculum/labs/storm-thumbnail.jpg" />
+      </div>
+      <div class="image-wrapper">
+        <img
+          alt="a painting depicting a farm"
+          class="gallery-item"
+          src="https://cdn.freecodecamp.org/curriculum/labs/trees-thumbnail.jpg" />
+      </div>
+    </div>
+    <div class="lightbox">
+      <img id="lightbox-image" /><span id="close">&times;</span>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

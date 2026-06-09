@@ -1,0 +1,64 @@
+<script>
+  class BankAccount {
+    constructor() {
+      this.balance = 0;
+      this.transactions = [];
+    }
+    deposit(amount) {
+      if (amount > 0) {
+        this.transactions.push({ type: "deposit", amount: amount });
+        this.balance += amount;
+        return `Successfully deposited $${amount}. New balance: $${this.balance}`;
+      } else {
+        return "Deposit amount must be greater than zero.";
+      }
+    }
+    withdraw(amount) {
+      if (amount > 0 && amount <= this.balance) {
+        this.transactions.push({ type: "withdraw", amount: amount });
+        this.balance -= amount;
+        return `Successfully withdrew $${amount}. New balance: $${this.balance}`;
+      }
+      if (amount <= 0 || amount > this.balance) {
+        return "Insufficient balance or invalid amount.";
+      }
+    }
+
+    checkBalance() {
+      return `Current balance: $${this.balance}`;
+    }
+
+    listAllDeposits() {
+      let depo = "Deposits: ";
+      const deposits = this.transactions.filter(
+        (transaction) => transaction.type === "deposit"
+      );
+      deposits.forEach((deposit) => (depo += `${deposit.amount},`));
+      const slicedDeposits = depo.slice(0, -1);
+      return slicedDeposits;
+    }
+    listAllWithdrawals() {
+      let withd = "Withdrawals: ";
+      const withdrawals = this.transactions.filter(
+        (transaction) => transaction.type === "withdraw"
+      );
+      withdrawals.forEach((withdraw) => (withd += `${withdraw.amount},`));
+      const slicedWithdrawals = withd.slice(0, -1);
+      return slicedWithdrawals;
+    }
+  }
+
+  const myAccount = new BankAccount();
+  const deposit1 = myAccount.deposit(10000);
+  const deposit2 = myAccount.deposit(25000);
+  const deposit3 = myAccount.deposit(35000);
+  const depositNeg = myAccount.deposit(-50);
+  const withdraw1 = myAccount.withdraw(5000);
+  const withdraw2 = myAccount.withdraw(15000);
+  const withdraw3 = myAccount.withdraw(5670);
+
+  const balance = myAccount.checkBalance();
+
+  console.log(balance);
+  console.log(depositNeg);
+</script>

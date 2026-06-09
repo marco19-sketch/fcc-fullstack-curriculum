@@ -1,0 +1,14 @@
+<script>
+  const mutation = arr => {
+    for (let char of arr[1].toLowerCase()) {
+      console.log(char);
+      if (!arr[0].toLowerCase().includes(char)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const final = mutation(["hello", "hey"]);
+  console.log(final);
+</script>

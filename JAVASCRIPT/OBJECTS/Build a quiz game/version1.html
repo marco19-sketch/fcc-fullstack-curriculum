@@ -1,0 +1,64 @@
+<script>
+  const questions = [
+    {
+      category: "space",
+      question: "What is the biggest planet in our Solar System?",
+      choices: ["Earth", "Saturn", "Jupiter"],
+      answer: "Jupiter",
+    },
+    {
+      category: "geology",
+      question: "What type of rock is formed from cooled lava?",
+      choices: [" Sedimentary", "Igneous", "Metamorphic"],
+      answer: "Igneous",
+    },
+    {
+      category: "archaeology",
+      question: "What do archaeologists study?",
+      choices: ["Fossils", "Artifacts", "Planets"],
+      answer: "Artifacts",
+    },
+    {
+      category: "pop star",
+      question: 'Who is known as the "King of Pop"?',
+      choices: ["Elvis", "Michael", "Prince"],
+      answer: "Michael",
+    },
+    {
+      category: "board games",
+      question: "Which board game uses a checkerboard pattern?",
+      choices: ["Chess", "Monopoly", "Clue"],
+      answer: "Chess",
+    },
+  ];
+
+  function getRandomQuestion(questionsArr) {
+    return questionsArr[Math.floor(Math.random() * questionsArr.length)];
+  }
+
+  const randomQuestionObject = getRandomQuestion(questions);
+
+  const choicesArray = randomQuestionObject.choices;
+
+  function getRandomComputerChoice(arrayChoices) {
+    return arrayChoices[Math.floor(Math.random() * arrayChoices.length)];
+  }
+
+  const question = randomQuestionObject.question;
+
+  const randomChoice = getRandomComputerChoice(choicesArray);
+
+  function getResults(questObj, choice) {
+    return choice === questObj.answer
+      ? `The computer's choice is correct!`
+      : `The computer's choice is wrong. The correct answer is: ${questObj.answer}`;
+  }
+
+  const questionAndAnswer = getResults(randomQuestionObject, randomChoice);
+
+  console.log(question);
+
+  console.log(randomChoice);
+
+  console.log(questionAndAnswer);
+</script>

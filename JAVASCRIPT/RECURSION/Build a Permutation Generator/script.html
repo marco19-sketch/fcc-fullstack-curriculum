@@ -1,0 +1,23 @@
+<script>
+const permuteString = (str, prefix = "", results = []) => {
+    if (str.length === 0) {
+      results.push(prefix);
+      return  results;
+    }
+    // recursion and backtrack(it happens don't know how)
+    // basically the callbacks try all the possible combinations
+    // because of the loop too
+    for (let i = 0; i < str.length; i++) {
+      const char = str[i];
+      console.log('String: ',str,'; char: ', char,'; prefix+char ', prefix + char)
+      const remaining = str.slice(0, i) + str.slice(i + 1);
+      console.log(';remaining ', remaining)
+      permuteString(remaining, prefix + char, results);
+    }
+    const final = new Set(results);
+    return [...final]; 
+  };
+
+  console.log(permuteString("cat", "", []));
+  </script>
+
