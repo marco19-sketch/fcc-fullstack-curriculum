@@ -31,11 +31,13 @@ Ensure all your files are located in the same directory:
 * `style.css`
 * `index.ts`
 
-### 2. Compile the ts file 
+### 2. Compile the .ts file
 
 ```bash
     tsc index.ts 
 ```
+
+### ...this creates a .js file
 
 ### 3. Linking Files in HTML
 
