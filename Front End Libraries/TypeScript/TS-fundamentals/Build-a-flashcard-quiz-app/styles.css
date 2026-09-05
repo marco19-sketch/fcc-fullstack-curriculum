@@ -1,0 +1,73 @@
+body {
+  width: 100vw;
+  background-color: rgb(3, 91, 91);
+}
+
+#container {
+  height: 200px;
+  max-width: 400px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px;
+  perspective: 1000px;
+}
+
+#flashcard {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+#flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+#flashcard .card-front,
+#flashcard .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: white;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+}
+
+#flashcard .card-back {
+  transform: rotateY(180deg);
+  background: blue;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  display: block;
+  width: 150px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+textarea {
+  display: block;
+  width: 400px;
+  height: 50px;
+}
+
+label {
+  margin: 20px auto;
+}
+
