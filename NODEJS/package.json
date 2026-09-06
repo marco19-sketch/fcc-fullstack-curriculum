@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-learning",
+  "version": "1.0.0",
+  "description": "freeCodeCamp tutorials",
+  "license": "ISC",
+  "author": "Marco Brusca",
+  "type": "commonjs",
+  "main": "buffer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
