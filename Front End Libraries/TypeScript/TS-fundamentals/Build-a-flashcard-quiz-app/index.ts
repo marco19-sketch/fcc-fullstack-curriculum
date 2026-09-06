@@ -30,46 +30,45 @@ const currentCards: FlashCard[] = [
   },
 ];
 
-let currentCardIndex = 0;
-
 // Function to update card content
-function updateCardDisplay(index: number) {
-  if (cardFront && cardBack && currentCards[index]) {
+function updateCardDisplay(): void {
+  if (cardFront && cardBack) {
+    if (currentCards.length === 0) {
+      cardFront.textContent = "";
+      cardBack.textContent = "";
+      return;
+    }
+
+    const index = currentCards.length - 1;
     cardFront.textContent = currentCards[index].questionText;
     cardBack.textContent = currentCards[index].questionAnswer;
   }
 }
 
+// Flip card logic
 if (flashcard && cardFront && cardBack) {
-  updateCardDisplay(currentCardIndex);
+  updateCardDisplay();
 
   flashcard.addEventListener("click", () => {
     flashcard.classList.toggle("flipped");
   });
 }
 
-// if (delBtn && flashcard && currentCards.length > 0) {
+// Remove flashcard logic
 if (delBtn && flashcard) {
   delBtn.addEventListener("click", () => {
-    // if (currentCards.length < 1) {
-    //   return 'No more cards'
-    // }
-    currentCards.splice(currentCardIndex, 1);
+    currentCards.pop();
     if (currentCards.length === 0) {
       flashcard.textContent = "No cards left!";
       flashcard.classList.remove("flipped");
       return;
     }
-    currentCardIndex--;
-    if (currentCardIndex < 0) {
-      currentCardIndex = 0;
-    }
-    // flashcard.textContent = currentCards[currentCardIndex].questionText;
-    updateCardDisplay(currentCardIndex);
+    updateCardDisplay();
     flashcard.classList.remove("flipped");
   });
 }
 
+// Create new error class
 class InvalidUserInputError extends Error {
   constructor(message: string) {
     super(message);
@@ -77,6 +76,7 @@ class InvalidUserInputError extends Error {
   }
 }
 
+// Entry form logic
 if (entryForm && frontText && backText) {
   entryForm.addEventListener("submit", e => {
     e.preventDefault();
@@ -91,6 +91,5 @@ if (entryForm && frontText && backText) {
 
     frontText.value = "";
     backText.value = "";
-    console.log(currentCards);
   });
 }
